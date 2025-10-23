@@ -43,9 +43,9 @@ export function AddonCard({ product }: AddonCardProps) {
   };
 
   return (
-    <Card className="relative overflow-hidden hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+    <Card className="relative overflow-hidden bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1">
       {badgeText && (
-        <Badge className="absolute top-4 right-4 z-10 bg-red-500 hover:bg-red-600">
+        <Badge className="absolute top-4 right-4 z-10 bg-red-500 hover:bg-red-600 transition-all duration-200">
           {badgeText}
         </Badge>
       )}
@@ -55,7 +55,7 @@ export function AddonCard({ product }: AddonCardProps) {
           <ImageWithFallback
             src={product.image}
             alt={displayTitle}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
           />
         </div>
       </CardHeader>
@@ -71,15 +71,15 @@ export function AddonCard({ product }: AddonCardProps) {
             variant="ghost"
             size="sm"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-2 p-0 h-auto text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            className="mt-2 p-0 h-auto text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-all duration-200 active:scale-95"
           >
             {isExpanded ? (
               <>
-                Show less <ChevronUp className="ml-1 h-4 w-4" />
+                Show less <ChevronUp className="ml-1 h-4 w-4 transition-transform duration-200" />
               </>
             ) : (
               <>
-                More <ChevronDown className="ml-1 h-4 w-4" />
+                More <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
               </>
             )}
           </Button>
@@ -87,7 +87,7 @@ export function AddonCard({ product }: AddonCardProps) {
       </CardContent>
 
       <CardFooter className="p-4 pt-0">
-        <Button onClick={handleDownload} className="w-full">
+        <Button onClick={handleDownload} className="w-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
           <Download className="mr-2 h-4 w-4" />
           Download
         </Button>

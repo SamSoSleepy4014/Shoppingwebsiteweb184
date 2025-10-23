@@ -9,11 +9,17 @@ type Page = 'home' | 'addon' | 'map' | 'mcui';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <ThemeProvider>
       <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
-        <Sidebar currentPage={currentPage} onPageChange={setCurrentPage} />
+        <Sidebar 
+          currentPage={currentPage} 
+          onPageChange={setCurrentPage}
+          isOpen={isSidebarOpen}
+          onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        />
         <main className="flex-1 overflow-auto">
           {currentPage === 'home' && <HomePage />}
           {currentPage === 'addon' && <ProductPage type="addon" />}
